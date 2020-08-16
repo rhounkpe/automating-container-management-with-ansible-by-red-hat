@@ -1,0 +1,16 @@
+---
+- name: Register container image
+  hosts: docker
+  become: true
+
+  tasks:
+    - name: Log into registry
+      docker_login:
+        username: "{{ quay_user }}"
+        password: "{{ qua_pass }}"
+        registry_url: quay.io
+      register: login
+    
+    - name: show login information
+      debug:
+        var: login
