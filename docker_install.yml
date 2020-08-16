@@ -1,5 +1,5 @@
 ---
-- name: Install Docker on a CentOS 7 managed host
+- name: Install Docker on a CentOS 8 managed host
   hosts: all
   become: true
 

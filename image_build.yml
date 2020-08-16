@@ -1,0 +1,12 @@
+---
+- name: Create a container image
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create an image from the Dockerfile in the current directory
+      docker_image:
+        name: pluralsight/demo_image
+        build:
+          path: /home/demo/ansible
+        source: build
