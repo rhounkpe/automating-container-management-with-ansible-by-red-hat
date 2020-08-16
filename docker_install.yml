@@ -1,0 +1,21 @@
+---
+- name: Install Docker on a CentOS 7 managed host
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install our repository - epel
+      yum:
+        name: epel-release
+        state: installed
+
+    - name: Install Docker
+      yum:
+        name: Docker
+        state: latest
+
+    - name: Start and enable Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
